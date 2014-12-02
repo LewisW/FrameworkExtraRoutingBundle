@@ -1,0 +1,5 @@
+services:
+  vivait_framework_extra_routing.listener:
+    class: Vivait\FrameworkExtraRoutingBundle\EventListener\ConvertRequestListener
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
