@@ -1,0 +1,20 @@
+{
+    "name": "vivait/framework-extra-routing-bundle",
+    "description": "Allow the configuration of SensioFrameworkExtraBundle's additional features via the routing (i.e. without annotations)",
+    "authors": [
+        {
+            "name": "Lewis Wright",
+            "email": "lewis@vivait.co.uk"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "sensio/framework-extra-bundle": "~3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Vivait\\FrameworkExtraRoutingBundle\\": "src/"
+        }
+    }
+}
