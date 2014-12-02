@@ -2,7 +2,7 @@
 
 namespace Vivait\FrameworkExtraRoutingBundle\EventListener;
 
-use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class ConvertRequestListener {
 
@@ -10,19 +10,8 @@ class ConvertRequestListener {
         '_converters' => 'Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter'
     ];
 
-    /**
-     * Modifies the Request object to apply configuration information found in
-     * controllers annotations like the template to render or HTTP caching
-     * configuration.
-     *
-     * @param FilterControllerEvent $event A FilterControllerEvent instance
-     */
-    public function onKernelRequest(FilterControllerEvent $event)
+    public function onKernelRequest(GetResponseEvent $event)
     {
-        if (!is_array($controller = $event->getController())) {
-            return;
-        }
-
         $request = $event->getRequest();
 
         foreach ($this->map as $param => $class) {
